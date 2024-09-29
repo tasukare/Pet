@@ -1,41 +1,54 @@
-local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Loco-CTO/UI-Library/main/VisionLibV2/source.lua'))()
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-local Window = Library:Create({
-	Name = "Ngoun sovannarong", -- String
-	Footer = "weniga", -- String
-	ToggleKey = Enum.KeyCode.RightShift, -- Enum.KeyCode
-	LoadedCallback = function()
-		-- Function
-	end,
+local Window = OrionLib:MakeWindow({Name = "Ryan", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest"})
 
-	KeySystem = false, -- Boolean
-	Key = "nigga", -- String
-	MaxAttempts = 5, -- Integer
-	DiscordLink = "https://discord.gg/poosi", -- String (Set it to nil if you do not have one, the button will not pop out)
-	ToggledRelativeYOffset = 5 -- Number (Y Offset from bottom of your screen. Set it to nil if you want it to be centred)
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
+
+
+local Tab = Window:MakeTab({
+	Name = "main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
 })
 
-Window:ChangeTogglekey(Enum.KeyCode.RightShift)
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+local Section = Tab:AddSection({
+	Name = "Section 1"
+})
 
-local Tab = Window:Tab({
-	Name = "Mainigga", -- String
-	Icon = "rbxassetid://11396131982", -- String
-	Color = Color3.new(1, 0, 0) -- Color3
-	ActivationCallback = function()
-		-- Function
-	end,
-	DeativationCallback = function()
-		-- Function
-	end,
+--[[
+Name = <string> - The name of the section.
+]]
+Tab:AddButton({
+	Name = "Button!",
+	Callback = function()
+      		print("button pressed")
+  	end    
 })
-local Section = Tab:Section({
-	Name = "pausey" -- String
-})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+	
 local Button = Section:Button({
 	Name = "PLANT", -- String
 	Callback = function()
-        while wait() do
-		local args = {
+        local args = {
             [1] = "FlowerGarden",
             [2] = "PlantSeed",
             [3] = 1, 2, 3, 4, 5
@@ -44,8 +57,46 @@ local Button = Section:Button({
         
         game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
     end
-end
 })
+Tab:AddButton({
+	Name = "capsule",
+	Callback = function()
+		local args = {
+			[1] = "FlowerGarden",
+			[2] = "PlantSeed",
+			[3] = 1, 2, 3, 4, 5
+			[4] = "Diamond"
+		}
+		
+		game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
+		
+	end
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Tab:AddButton({
+	Name = "claim",
+	Callback = function()
+		local args = {
+			[1] = "FlowerGarden",
+			[2] = "ClaimPlant",
+			[3] = 1, 2, 3, 4, 5
+		}
+		
+		game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_FireCustomFromClient"):FireServer(unpack(args))
+		end
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
 local Toggle = Section:Toggle({
 	Name = "Toggle", -- String
 	Default = true, -- Boolean
@@ -60,7 +111,6 @@ local Toggle = Section:Toggle({
             
             game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
         end
-	end
 })
 local Toggle = Section:Toggle({
 	Name = "capsule", -- String
@@ -92,3 +142,41 @@ local Toggle = Section:Toggle({
             end
 	end
 })
+Tab:AddSlider({
+	Name = "Slider",
+	Min = 0,
+	Max = 20,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "bananas",
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+--[[
+Name = <string> - The name of the slider.
+Min = <number> - The minimal value of the slider.
+Max = <number> - The maxium value of the slider.
+Increment = <number> - How much the slider will change value when dragging.
+Default = <number> - The default value of the slider.
+ValueName = <string> - The text after the value number.
+Callback = <function> - The function of the slider.
+]]
+Tab:AddDropdown({
+	Name = "Dropdown",
+	Default = "1",
+	Options = {"1", "2"},
+	Callback = function(Value)
+		print(Value)
+	end    
+})
+
+--[[
+Name = <string> - The name of the dropdown.
+Default = <string> - The default value of the dropdown.
+Options = <table> - The options in the dropdown.
+Callback = <function> - The function of the dropdown.
+]]
+OrionLib:Init()

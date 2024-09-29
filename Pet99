@@ -1,0 +1,94 @@
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Loco-CTO/UI-Library/main/VisionLibV2/source.lua'))()
+
+local Window = Library:Create({
+	Name = "Ngoun sovannarong", -- String
+	Footer = "weniga", -- String
+	ToggleKey = Enum.KeyCode.RightShift, -- Enum.KeyCode
+	LoadedCallback = function()
+		-- Function
+	end,
+
+	KeySystem = false, -- Boolean
+	Key = "nigga", -- String
+	MaxAttempts = 5, -- Integer
+	DiscordLink = "https://discord.gg/poosi", -- String (Set it to nil if you do not have one, the button will not pop out)
+	ToggledRelativeYOffset = 5 -- Number (Y Offset from bottom of your screen. Set it to nil if you want it to be centred)
+})
+
+Window:ChangeTogglekey(Enum.KeyCode.RightShift)
+
+local Tab = Window:Tab({
+	Name = "Mainigga", -- String
+	Icon = "rbxassetid://11396131982", -- String
+	Color = Color3.new(1, 0, 0) -- Color3
+	ActivationCallback = function()
+		-- Function
+	end,
+	DeativationCallback = function()
+		-- Function
+	end,
+})
+local Section = Tab:Section({
+	Name = "pausey" -- String
+})
+local Button = Section:Button({
+	Name = "PLANT", -- String
+	Callback = function()
+        while wait() do
+		local args = {
+            [1] = "FlowerGarden",
+            [2] = "PlantSeed",
+            [3] = 1, 2, 3, 4, 5
+            [4] = "Diamond"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
+    end
+end
+})
+local Toggle = Section:Toggle({
+	Name = "Toggle", -- String
+	Default = true, -- Boolean
+	Callback = function(Bool)
+        while wait() do
+            local args = {
+                [1] = "FlowerGarden",
+                [2] = "PlantSeed",
+                [3] = 1, 2, 3, 4, 5
+                [4] = "Diamond"
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
+        end
+	end
+})
+local Toggle = Section:Toggle({
+	Name = "capsule", -- String
+	Default = true, -- Boolean
+	Callback = function(Bool)
+		while wait() do
+            local args = {
+                [1] = "FlowerGarden",
+                [2] = "InstaGrowSeed",
+                [3] = 1, 2, 3, 4, 5
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
+        end
+	end
+})
+local Toggle = Section:Toggle({
+	Name = "Toggle", -- String
+	Default = true, -- Boolean
+	Callback = function(Bool)
+		while wait() do
+            local args = {
+                [1] = "FlowerGarden",
+                [2] = "ClaimPlant",
+                [3] = 1, 2, 3, 4, 5
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_FireCustomFromClient"):FireServer(unpack(args))
+            end
+	end
+})

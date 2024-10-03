@@ -17,92 +17,16 @@ Section:NewButton("Plant", "ButtonInfo", function()
 end)
 
 Section:NewButton("Plant", "ButtonInfo", function()
-    while wait() do
-        local args = {
-        [1] = "FlowerGarden",
-        [2] = "PlantSeed",
-        [3] = 2,
-        [4] = "Diamond"
-        }
+        while wait() do
+            local args = {
+            [1] = "FlowerGarden",
+            [2] = "PlantSeed",
+            [3] = 2,
+            [4] = "Diamond"
+            }
 
         game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
-    end
-end)
+        end
+    end)
 
-Section:NewButton("Plant", "ButtonInfo", function()
-    while wait() do
-        local args = {
-        [1] = "FlowerGarden",
-        [2] = "PlantSeed",
-        [3] = 3,
-        [4] = "Diamond"
-        }
-
-        game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
-    end
-end)
-
-Section:NewButton("Plant", "ButtonInfo", function()
-    while wait() do
-        local args = {
-        [1] = "FlowerGarden",
-        [2] = "PlantSeed",
-        [3] = 4,
-        [4] = "Diamond"
-        }
-
-        game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
-    end
-end)
-
-Section:NewButton("Plant", "ButtonInfo", function()
-    while wait() do
-        local args = {
-        [1] = "FlowerGarden",
-        [2] = "PlantSeed",
-        [3] = 5,
-        [4] = "Diamond"
-        }
-
-        game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
-    end
-end)
-
-Section:NewButton("Plant", "ButtonInfo", function()
-    while wait() do
-        local args = {
-        [1] = "FlowerGarden",
-        [2] = "PlantSeed",
-        [3] = 6,
-        [4] = "Diamond"
-        }
-
-        game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
-    end
-end)
-
-Section:NewButton("Plant", "ButtonInfo", function()
-    while wait() do
-        local args = {
-        [1] = "FlowerGarden",
-        [2] = "PlantSeed",
-        [3] = 7,
-        [4] = "Diamond"
-        }
-
-        game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
-    end
-end)
-
-Section:NewButton("Plant", "ButtonInfo", function()
-    while wait() do
-        local args = {
-        [1] = "FlowerGarden",
-        [2] = "PlantSeed",
-        [3] = 1,
-        [4] = "Diamond"
-        }
-
-        game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
-    end
 end)

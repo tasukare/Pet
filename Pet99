@@ -32,10 +32,13 @@ Section:NewButton("Plant", "Niigga farm for you", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tasukare/Pet/main/1"))()
 
 end)
-Section:NewButton("Plant", "ButtonInfo", function()
+Section:NewButton("instant", "ButtonInfo", function()
 
        loadstring(game:HttpGet("https://raw.githubusercontent.com/tasukare/Pet/main/2"))()
 
     end)
+Section:NewButton("calim", "ButtonInfo", function()
 
-end)
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/tasukare/Pet/main/3"))()
+
+    end)

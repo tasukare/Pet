@@ -10,16 +10,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/tasukare/Pet/main/1")
 end)
 
 Section:NewButton("Plant", "ButtonInfo", function()
-        while wait() do
-            local args = {
-            [1] = "FlowerGarden",
-            [2] = "PlantSeed",
-            [3] = 2,
-            [4] = "Diamond"
-            }
 
-        game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Instancing_InvokeCustomFromClient"):InvokeServer(unpack(args))
-        end
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/tasukare/Pet/main/2"))()
+
     end)
 
 end)
